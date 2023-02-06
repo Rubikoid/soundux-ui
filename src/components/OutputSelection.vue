@@ -27,7 +27,7 @@
               class="mr-1"
             />
             <span class="text-truncate">
-              {{ item.application }}
+              {{ item.name }}
             </span>
           </v-chip>
         </template>
@@ -41,7 +41,7 @@
             />
           </v-col>
           <v-col class="text-truncate">
-            {{ item.application }}
+            {{ item.name }}
           </v-col>
         </template>
       </v-row>

@@ -188,7 +188,7 @@ export default new Vuex.Store({
     setPlaybackApps: (state, playbackApps: Output[]) => (state.playbackApps = playbackApps),
     setSelectedOutputs: (state, selectedOutputs: Output[]) => {
       state.selectedOutputs = selectedOutputs;
-      state.settings.outputs = selectedOutputs.map(({ application }) => application);
+      state.settings.outputs = selectedOutputs.map(({ name }) => name);
     },
     updateSoundPlayback: (
       _state,
@@ -472,9 +472,11 @@ export default new Vuex.Store({
      * Start an application passthrough via the backend
      */
     async startPassthrough({ commit }, app: Output) {
-      const success = await window.startPassthrough(app.application);
-      if (success) {
-        commit('addToCurrentlyPlaying', app);
+      if(app.application) {
+        const success = await window.startPassthrough(app.application);
+        if (success) {
+            commit('addToCurrentlyPlaying', app);
+        }
       }
     },
 
@@ -513,7 +515,7 @@ export default new Vuex.Store({
             if (selectedOutputs.length === 0) {
               commit('setSelectedOutputs', [outputs[0]]);
             } else {
-              const selectedOutputNames = selectedOutputs.map(({ application }) => application);
+              const selectedOutputNames = selectedOutputs.map(({ name }) => name);
               const current = outputs.filter(({ name }) => selectedOutputNames.includes(name));
               if (current.length > 0) {
                 commit('setSelectedOutputs', current);

@@ -30,8 +30,10 @@ export default Vue.extend({
   },
   methods: {
     async stop(): Promise<void> {
-      await window.stopPassthrough(this.output.application);
-      this.$store.commit('removeFromCurrentlyPlaying', this.output);
+      if(this.output.application) {
+        await window.stopPassthrough(this.output.application);
+        this.$store.commit('removeFromCurrentlyPlaying', this.output);
+      }
     },
     getPrettyName,
   },

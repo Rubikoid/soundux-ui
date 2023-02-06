@@ -3,6 +3,9 @@ import ISO6391 from 'iso-639-1';
 
 export function getPrettyName(output: Output): string {
   const { name, application } = output;
+  if (!application) {
+    return name;
+  }
   if (!name) {
     return application;
   }

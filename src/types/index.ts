@@ -49,7 +49,7 @@ export interface UpdateData {
 
 export interface Output {
   name: string;
-  application: string;
+  application?: string;
   appIcon?: string; // Base64 image
 }
 
