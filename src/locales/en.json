@@ -28,7 +28,9 @@
     "confirmation": "Confirmation",
     "openFolder": "Open folder",
     "ignore": "Ignore",
-    "dismiss": "Dismiss"
+    "dismiss": "Dismiss",
+    "random": "Random song",
+    "random_on_tab": "Random song in tab"
   },
   "removeTab": {
     "question": "Would you like to remove the tab {tabName}?"

@@ -98,7 +98,9 @@
     "yes": "Да",
     "playlistMode": "Режим плейлиста",
     "play": "Играть",
-    "appPassThrough": "Перенаправление"
+    "appPassThrough": "Перенаправление",
+    "random": "Случайный звук",
+    "random_on_tab": "Случайный звук в вкладке"
   },
   "welcome": {
     "title": "Добро пожаловать в {programName}",

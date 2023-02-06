@@ -419,6 +419,30 @@ export default new Vuex.Store({
       }
     },
 
+    async playRandomSound({ commit, getters }) {
+        if (getters.tabs.length === 0) {
+            return;
+        }
+
+        const playingSound = await window.playRandomSound();
+        if (playingSound) {
+            commit('addToCurrentlyPlaying', playingSound);
+        }
+      },
+
+    async playRandomSoundOnTab({ commit, getters }) {
+        if (getters.tabs.length === 0) {
+            return;
+        }
+
+        const { activeTabIndex } = getters;
+        const playingSound = await window.playRandomSoundOnTab(activeTabIndex);
+
+        if (playingSound) {
+            commit('addToCurrentlyPlaying', playingSound);
+        }
+      },
+      
     /**
      * Update favorites from the backend
      */

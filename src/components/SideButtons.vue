@@ -96,6 +96,27 @@
       <v-icon left>mdi-heart</v-icon>
       {{ $t('favorites.title') }}
     </v-btn>
+
+    <v-btn
+      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+      class="mb-2"
+      :disabled="$store.getters.tabs.length === 0"
+      @click="$store.dispatch('playRandomSound')"
+    >
+      <v-icon left dark>mdi-dice-multiple</v-icon>
+      {{ $t('actions.random') }}
+    </v-btn>
+
+    <v-btn
+      :color="$vuetify.theme.dark ? 'grey darken-3' : 'grey lighten-1'"
+      class="mb-2"
+      :disabled="$store.getters.tabs.length === 0"
+      @click="$store.dispatch('playRandomSoundOnTab')"
+    >
+      <v-icon left dark>mdi-dice-multiple</v-icon>
+      {{ $t('actions.random_on_tab') }}
+    </v-btn>
+
     <v-spacer></v-spacer>
     <v-menu offset-y close-on-content-click>
       <template #activator="{ on, attrs }">

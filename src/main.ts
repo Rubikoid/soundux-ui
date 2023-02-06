@@ -55,6 +55,8 @@ declare global {
     setHotkey: (id: number, hotkeys: number[]) => Promise<void>;
     stopSounds: () => Promise<void>;
     playSound: (id: number) => Promise<PlayingSound | null>;
+    playRandomSound: () => Promise<PlayingSound | null>;
+    playRandomSoundOnTab: (activeTabIndex: number) => Promise<PlayingSound | null>;
     pauseSound: (id: number) => Promise<PlayingSound | null>;
     resumeSound: (id: number) => Promise<PlayingSound | null>;
     toggleSoundPlayback: () => Promise<boolean | null>;
